@@ -23,7 +23,8 @@ class ServerlessPlugin {
     };
   }
 
-  loadEnv() {
+  loadEnv(env) {
+    var envFileName = this.resolveEnvFileName(env);
     try {
       this.serverless.cli.log("DOTENV: Loading environment variables:");
       var config = this.serverless.service.custom["dotenv"];
